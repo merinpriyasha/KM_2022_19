@@ -468,7 +468,10 @@ router.get('/getLowesDramamarks', (req,res)=>{
 /**
  * Grade A
  */
- router.get('/engPassFail', (req,res)=>{
+/**
+ * Pie chart
+ */
+ router.get('/engPassFailA', (req,res)=>{
     let sql =
         'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `English` < 35) as b where a.Class = "A" && a.English >= 35 ;'
     db.query(sql, (err, rows) => {
@@ -534,7 +537,10 @@ router.get('/getFailMath', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/mathsPassFail', (req,res)=>{
+/**
+ * Pie chart
+ */
+router.get('/mathsPassFailA', (req,res)=>{
     let sql =
         'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `Mathematic` < 35) as b where a.Class = "A" && a.Mathematic >= 35 ;'
     db.query(sql, (err, rows) => {
@@ -562,7 +568,7 @@ router.get('/getFailScienc', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/sciencePassFail', (req,res)=>{
+router.get('/sciencePassFailA', (req,res)=>{
     let sql =
         'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `Science` < 35) as b where a.Class = "A" && a.Science >= 35 ;'
     db.query(sql, (err, rows) => {
@@ -592,7 +598,7 @@ router.get('/getFailFirstLanguage', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/firstLngPassFail', (req,res)=>{
+router.get('/firstLngPassFailA', (req,res)=>{
     let sql =
         'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `FirstLanguage` < 35) as b where a.Class = "A" && a.FirstLanguage >= 35 ;'
     db.query(sql, (err, rows) => {
@@ -622,6 +628,18 @@ router.get('/getFailBuddhism', (req,res)=>{
     });
 });
 
+/**
+ * Pie chart
+ */
+ router.get('/buddhismPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `Buddhism` < 35) as b where a.Class = "A" && a.Buddhism >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
 //History
 router.get('/getPassHistory', (req,res)=>{
     let sql =
@@ -641,7 +659,18 @@ router.get('/getFailHistory', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-
+/**
+ * Pie chart
+ */
+ router.get('/historyPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `History` < 35) as b where a.Class = "A" && a.History >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
 //Geography
 router.get('/getPassGeography', (req,res)=>{
     let sql =
@@ -659,6 +688,19 @@ router.get('/getFailGeography', (req,res)=>{
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
         res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+
+/**
+ * Pie chart
+ */
+ router.get('/geographyPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `Geography` < 35) as b where a.Class = "A" && a.Geography >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
@@ -681,7 +723,18 @@ router.get('/getFailCitizenshipEducation', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-
+/**
+ * Pie chart
+ */
+ router.get('/citizenshipEducationPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `CitizenshipEducation` < 35) as b where a.Class = "A" && a.CitizenshipEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
 //HealthPhysicalEducation
 router.get('/getPassHealthPhysicalEducation', (req,res)=>{
     let sql =
@@ -701,7 +754,18 @@ router.get('/getFailHealthPhysicalEducation', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-
+/**
+ * Pie chart
+ */
+ router.get('/healthPhysicalEducationPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `HealthPhysicalEducation` < 35) as b where a.Class = "A" && a.HealthPhysicalEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
 //Tamil
 router.get('/getPassTamil', (req,res)=>{
     let sql =
@@ -721,7 +785,18 @@ router.get('/getFailTamil', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-
+/**
+ * Pie chart
+ */
+ router.get('/tamilPassFailA', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "A" && `Tamil` < 35) as b where a.Class = "A" && a.Tamil >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
 //EasternMusic
 router.get('/getPassEasternMusic', (req,res)=>{
     let sql =
@@ -1386,26 +1461,26 @@ router.get('/getFailDramaandTheatre', (req,res)=>{
 //Pass & Fail 
 //Class A
 
-router.get('/getFailEnglishStu', (req,res)=>{
+router.get('/getFailEnglishStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassEnglishStu', (req,res)=>{
+router.get('/getPassEnglishStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailMathsStu', (req,res)=>{
+router.get('/getFailMathsStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Mathematic FROM grade6 WHERE Mathematic < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1414,7 +1489,7 @@ router.get('/getFailMathsStu', (req,res)=>{
        // res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassMathsStu', (req,res)=>{
+router.get('/getPassMathsStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Mathematic FROM grade6 WHERE Mathematic >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1424,7 +1499,7 @@ router.get('/getPassMathsStu', (req,res)=>{
     });
 });
 
-router.get('/getFailScienceStu', (req,res)=>{
+router.get('/getFailScienceStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1433,7 +1508,7 @@ router.get('/getFailScienceStu', (req,res)=>{
        // res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassScienceStu', (req,res)=>{
+router.get('/getPassScienceStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1443,7 +1518,7 @@ router.get('/getPassScienceStu', (req,res)=>{
     });
 });
 
-router.get('/getFailFirstLanguageStu', (req,res)=>{
+router.get('/getFailFirstLanguageStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1452,7 +1527,7 @@ router.get('/getFailFirstLanguageStu', (req,res)=>{
         //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassFirstLanguageStu', (req,res)=>{
+router.get('/getPassFirstLanguageStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
@@ -1462,117 +1537,117 @@ router.get('/getPassFirstLanguageStu', (req,res)=>{
     });
 });
 
-router.get('/getFailBuddhismStu', (req,res)=>{
+router.get('/getFailBuddhismStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassBuddhismStu', (req,res)=>{
+router.get('/getPassBuddhismStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailHistoryStu', (req,res)=>{
+router.get('/getFailHistoryStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassHistoryStu', (req,res)=>{
+router.get('/getPassHistoryStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailGeographyStu', (req,res)=>{
+router.get('/getFailGeographyStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassGeographyStu', (req,res)=>{
+router.get('/getPassGeographyStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailCitizenshipEducationStu', (req,res)=>{
+router.get('/getFailCitizenshipEducationStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassCitizenshipEducationStu', (req,res)=>{
+router.get('/getPassCitizenshipEducationStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getFailHealthPhysicalEducationStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getPassHealthPhysicalEducationStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
-router.get('/getFailTamilStu', (req,res)=>{
+router.get('/getFailTamilStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil < 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+         res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
-router.get('/getPassTamilStu', (req,res)=>{
+router.get('/getPassTamilStuA', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil >= 35 && Class = "A";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
-        // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
+        //res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
 
@@ -1655,193 +1730,193 @@ router.get('/getPassDramaandTheatreStu', (req,res)=>{
 //Pass & Fail 
 //Class B
 
-router.get('/getFailEnglishStu', (req,res)=>{
+router.get('/getFailEnglishStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassEnglishStu', (req,res)=>{
+router.get('/getPassEnglishStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailMathsStu', (req,res)=>{
+router.get('/getFailMathsStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Maths FROM grade6 WHERE Maths < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassMathsStu', (req,res)=>{
+router.get('/getPassMathsStuB', (req,res)=>{
     let sql =
-        'SELECT AdmissionNo, StudentName , Maths FROM grade6 WHERE Maths >= 35 && Class = "B";'
+        'SELECT AdmissionNo, StudentName , Mathematic FROM grade6 WHERE Mathematic >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailScienceStu', (req,res)=>{
+router.get('/getFailScienceStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassScienceStu', (req,res)=>{
+router.get('/getPassScienceStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailFirstLanguageStu', (req,res)=>{
+router.get('/getFailFirstLanguageStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassFirstLanguageStu', (req,res)=>{
+router.get('/getPassFirstLanguageStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailBuddhismStu', (req,res)=>{
+router.get('/getFailBuddhismStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassBuddhismStu', (req,res)=>{
+router.get('/getPassBuddhismStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailHistoryStu', (req,res)=>{
+router.get('/getFailHistoryStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassHistoryStu', (req,res)=>{
+router.get('/getPassHistoryStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailGeographyStu', (req,res)=>{
+router.get('/getFailGeographyStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassGeographyStu', (req,res)=>{
+router.get('/getPassGeographyStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailCitizenshipEducationStu', (req,res)=>{
+router.get('/getFailCitizenshipEducationStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassCitizenshipEducationStu', (req,res)=>{
+router.get('/getPassCitizenshipEducationStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getFailHealthPhysicalEducationStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getPassHealthPhysicalEducationStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailTamilStu', (req,res)=>{
+router.get('/getFailTamilStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil < 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassTamilStu', (req,res)=>{
+router.get('/getPassTamilStuB', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil >= 35 && Class = "B";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
@@ -1920,197 +1995,299 @@ router.get('/getPassDramaandTheatreStu', (req,res)=>{
         res.json({ Message: 'Getting All Data', Result: rows });
     });
 });
+/**
+ * pie charts 
+ * Class B
+ */
+
+/**
+ * Pie chart
+ */
+ router.get('/engPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `English` < 35) as b where a.Class = "B" && a.English >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+ router.get('/mathsPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `Mathematic` < 35) as b where a.Class = "B" && a.Mathematic >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/sciencePassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `Science` < 35) as b where a.Class = "B" && a.Science >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/firstLngPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `FirstLanguage` < 35) as b where a.Class = "B" && a.FirstLanguage >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/buddhismPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `Buddhism` < 35) as b where a.Class = "B" && a.Buddhism >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/historyPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `History` < 35) as b where a.Class = "B" && a.History >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/geographyPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `Geography` < 35) as b where a.Class = "B" && a.Geography >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/citizenshipEducationPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `CitizenshipEducation` < 35) as b where a.Class = "B" && a.CitizenshipEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/healthPhysicalEducationPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `HealthPhysicalEducation` < 35) as b where a.Class = "B" && a.HealthPhysicalEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/tamilPassFailB', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "B" && `Tamil` < 35) as b where a.Class = "B" && a.Tamil >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+
+/**
+ * End class B charts
+ */
 
 //Pass & Fail 
 //Class C
 
-router.get('/getFailEnglishStu', (req,res)=>{
+router.get('/getFailEnglishStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassEnglishStu', (req,res)=>{
+router.get('/getPassEnglishStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , English FROM grade6 WHERE English >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailMathsStu', (req,res)=>{
+router.get('/getFailMathsStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Maths FROM grade6 WHERE Maths < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassMathsStu', (req,res)=>{
+router.get('/getPassMathsStuC', (req,res)=>{
     let sql =
-        'SELECT AdmissionNo, StudentName , Maths FROM grade6 WHERE Maths >= 35 && Class = "C";'
+        'SELECT AdmissionNo, StudentName , Mathematic FROM grade6 WHERE Mathematic >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailScienceStu', (req,res)=>{
+router.get('/getFailScienceStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassScienceStu', (req,res)=>{
+router.get('/getPassScienceStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Science FROM grade6 WHERE Science >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailFirstLanguageStu', (req,res)=>{
+router.get('/getFailFirstLanguageStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassFirstLanguageStu', (req,res)=>{
+router.get('/getPassFirstLanguageStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , FirstLanguage FROM grade6 WHERE FirstLanguage >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailBuddhismStu', (req,res)=>{
+router.get('/getFailBuddhismStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassBuddhismStu', (req,res)=>{
+router.get('/getPassBuddhismStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Buddhism FROM grade6 WHERE Buddhism >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailHistoryStu', (req,res)=>{
+router.get('/getFailHistoryStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassHistoryStu', (req,res)=>{
+router.get('/getPassHistoryStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , History FROM grade6 WHERE History >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailGeographyStu', (req,res)=>{
+router.get('/getFailGeographyStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassGeographyStu', (req,res)=>{
+router.get('/getPassGeographyStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Geography FROM grade6 WHERE Geography >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailCitizenshipEducationStu', (req,res)=>{
+router.get('/getFailCitizenshipEducationStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassCitizenshipEducationStu', (req,res)=>{
+router.get('/getPassCitizenshipEducationStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , CitizenshipEducation FROM grade6 WHERE CitizenshipEducation >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getFailHealthPhysicalEducationStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassHealthPhysicalEducationStu', (req,res)=>{
+router.get('/getPassHealthPhysicalEducationStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , HealthPhysicalEducation FROM grade6 WHERE HealthPhysicalEducation >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
-router.get('/getFailTamilStu', (req,res)=>{
+router.get('/getFailTamilStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil < 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
-router.get('/getPassTamilStu', (req,res)=>{
+router.get('/getPassTamilStuC', (req,res)=>{
     let sql =
         'SELECT AdmissionNo, StudentName , Tamil FROM grade6 WHERE Tamil >= 35 && Class = "C";'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
-        res.json({ Message: 'Getting All Data', Result: rows });
+        res.send(rows);
     });
 });
 
@@ -2190,6 +2367,108 @@ router.get('/getPassDramaandTheatreStu', (req,res)=>{
     });
 });
 
+/**
+ * pie charts 
+ * Class C
+ */
+
+/**
+ * Pie chart
+ */
+ router.get('/mathsPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `Mathematic` < 35) as b where a.Class = "C" && a.Mathematic >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/sciencePassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `Science` < 35) as b where a.Class = "C" && a.Science >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/firstLngPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `FirstLanguage` < 35) as b where a.Class = "C" && a.FirstLanguage >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/buddhismPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `Buddhism` < 35) as b where a.Class = "C" && a.Buddhism >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/historyPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `History` < 35) as b where a.Class = "C" && a.History >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/geographyPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `Geography` < 35) as b where a.Class = "C" && a.Geography >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/citizenshipEducationPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `CitizenshipEducation` < 35) as b where a.Class = "C" && a.CitizenshipEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/healthPhysicalEducationPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `HealthPhysicalEducation` < 35) as b where a.Class = "C" && a.HealthPhysicalEducation >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/tamilPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `Tamil` < 35) as b where a.Class = "C" && a.Tamil >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+router.get('/engPassFailC', (req,res)=>{
+    let sql =
+        'select COUNT(a.AdmissionNo) as pass,  b.fail from grade6 as a , (select COUNT(AdmissionNo) as fail from grade6  where `Class` = "C" && `English` < 35) as b where a.Class = "C" && a.English >= 35 ;'
+    db.query(sql, (err, rows) => {
+        if (err) return res.status(400).json({ Message: err.message });
+         res.send(rows);
+       // res.json({ Message: 'Getting All Data', Result: rows });
+    });
+});
+
+/**
+ * End class C charts
+ */
 
 
 /**

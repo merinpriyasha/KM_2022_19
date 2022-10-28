@@ -45,6 +45,14 @@ app.get('/', function(req, res) {
 app.get('/indexpage', function(req, res) {
     res.render('index');
 });
+// home page
+app.get('/homepage', function(req, res) {
+    res.render('home');
+});
+// index page
+app.get('/inboxpage', function(req, res) {
+    res.render('inbox');
+});
 //  404 error page
 app.get('/404page', function(req, res) {
     res.render('404');
@@ -57,11 +65,19 @@ app.get('/500page', function(req, res) {
 app.get('/profile', function(req, res) {
     res.render('profile');
 });
-//  segmnet chart page
+
+//  Class A Charts Analysis chart page
 app.get('/segExploration', function(req, res) {
     res.render('dataexploration');
 });
-
+//  Class B Charts Analysis chart page
+app.get('/classBcharts', function(req, res) {
+    res.render('classBresultAnalysis');
+});
+//  Class C Charts Analysis chart page
+app.get('/classCcharts', function(req, res) {
+    res.render('classCresultAnalysis');
+});
 //  Priceing table page
 app.get('/pricingTable', function(req, res) {
     res.render('pricing_table');
