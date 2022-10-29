@@ -143,8 +143,8 @@ a, a:hover, a:focus {
 
 .btn-theme04 {
   color: #fff;
-  background-color: #ed5565;
-  border-color: #da4453;
+  background-color: #2B2E30;
+  border-color: #2B2E30;
 }
 .btn-theme04:hover,
 .btn-theme04:focus,
@@ -152,8 +152,8 @@ a, a:hover, a:focus {
 .btn-theme04.active,
 .open .dropdown-toggle.btn-theme04 {
   color: #fff;
-  background-color: #da4453;
-  border-color: #da4453;
+  background-color: #43b1a9;
+  border-color: #43b1a9;
 }
 
 .btn-clear-g {
@@ -839,7 +839,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .custom-bar-chart {
     height: 290px;
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 30px;
     position: relative;
     border-bottom: 1px solid #c9cdd7;
 }
@@ -1093,7 +1093,7 @@ PANELS CONFIGURATIONS
 
 /* Weather 1 */
 .weather {
-	background: url(../img/4.png) no-repeat center top;
+	background: url(../img/student.png) no-repeat center top;
 	text-align: center;
 	background-position: center center;
 }
@@ -1271,7 +1271,7 @@ PANELS CONFIGURATIONS
 	left: 35px;
 }
 .badge-hot {
-	background: #ed5565;
+	background: #43b1a9;
 	width: 70px;
 	height: 70px;
 	line-height: 70px;
@@ -1500,7 +1500,7 @@ PANELS CONFIGURATIONS
 
 /* Profile 02*/
 #profile-02 {
-	background: url(../img/profile-02.jpg) no-repeat center top;
+	background: url(../img/timetable.jpg) no-repeat center top;
 	margin-top: -15px;
 	background-attachment: relative;
 	background-position: center center;
@@ -1520,7 +1520,7 @@ PANELS CONFIGURATIONS
 	text-align: center;
 }
 #profile-02 h4 {
-	color: white;
+	color: rgb(0, 0, 0);
 	margin:0px;
 	padding-top: 8px;
 }

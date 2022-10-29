@@ -39,9 +39,9 @@
         *********************************************************************************************************************************************************** -->
         <!--header start-->
         <header class="header black-bg">
-            <div class="sidebar-toggle-box">
+            <!-- <div class="sidebar-toggle-box">
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-            </div>
+            </div> -->
             <!--logo start-->
             <a href="/" class="logo"><b>Student <span> Result Analysing System</span></b></a>
             <!--logo end-->
@@ -62,7 +62,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/loginpage">Logout</a></li>
+                    <li><a class="logout" href="/">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -81,49 +81,6 @@
             <section class="wrapper">
                 <div class="row">
                     <div class="col-lg-9 main-chart">
-                        <!--CUSTOM CHART START -->
-                        <div class="border-head">
-                            <h3>Monthly Absence of Students From School</h3>
-                        </div>
-                        <div class="custom-bar-chart">
-                            <ul class="y-axis">
-                                <li><span>500</span></li>
-                                <li><span>400</span></li>
-                                <li><span>300</span></li>
-                                <li><span>200</span></li>
-                                <li><span>100</span></li>
-                                <li><span>0</span></li>
-                            </ul>
-                            <div class="bar">
-                                <div class="title">JAN</div>
-                                <div class="value tooltips" data-original-title="450" data-toggle="tooltip" data-placement="top">90%</div>
-                            </div>
-                            <div class="bar ">
-                                <div class="title">FEB</div>
-                                <div class="value tooltips" data-original-title="390" data-toggle="tooltip" data-placement="top">78%</div>
-                            </div>
-                            <div class="bar ">
-                                <div class="title">MAR</div>
-                                <div class="value tooltips" data-original-title="250" data-toggle="tooltip" data-placement="top">50%</div>
-                            </div>
-                            <div class="bar ">
-                                <div class="title">APR</div>
-                                <div class="value tooltips" data-original-title="470" data-toggle="tooltip" data-placement="top">94%</div>
-                            </div>
-                            <div class="bar">
-                                <div class="title">MAY</div>
-                                <div class="value tooltips" data-original-title="320" data-toggle="tooltip" data-placement="top">64%</div>
-                            </div>
-                            <div class="bar ">
-                                <div class="title">JUN</div>
-                                <div class="value tooltips" data-original-title="260" data-toggle="tooltip" data-placement="top">52%</div>
-                            </div>
-                            <div class="bar">
-                                <div class="title">JUL</div>
-                                <div class="value tooltips" data-original-title="300" data-toggle="tooltip" data-placement="top">60%</div>
-                            </div>
-                        </div>
-
                         <!-- /row -->
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 mb">
@@ -186,46 +143,6 @@
                                 </div>
                             </div>
                             <!-- /col-md-4 -->
-                            <!--  PROFILE 02 PANEL -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                                <div class="content-panel pn product-panel-2 pn">
-                                    <div id="profile-02">
-                                        <div class="user">
-                                            <br> <br>
-                                            <!-- <img src="../img/friends/fr-06.jpg" class="img-circle" width="80"> -->
-                                            <h4>Term Time Tables</h4>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-small btn-theme04">Time Table</button>
-                                    <!-- <div class="pr2-social centered">
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                                    </div> -->
-                                </div>
-                                <!-- /panel -->
-                            </div>
-                            <!--/ col-md-4 -->
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="green-panel pn">
-                                    <div class="green-header">
-                                        <h5>2021 Year O/L Pass Students Precentage</h5>
-                                    </div>
-                                    <canvas id="serverstatus03" height="120" width="120"></canvas>
-                                    <script>
-                                        var doughnutData = [{
-                                            value: 78,
-                                            color: "#2b2b2b"
-                                        }, {
-                                            value: 22,
-                                            color: "#fffffd"
-                                        }];
-                                        var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
-                                    </script>
-                                    <h3>78% PASS</h3>
-                                </div>
-                            </div> 
-                            <!-- /col-md-4 -->
                         </div>
                         <!-- /row -->
                     </div>
@@ -233,36 +150,7 @@
                     <!-- **********************************************************************************************************************************************************
               RIGHT SIDEBAR CONTENT
               *********************************************************************************************************************************************************** -->
-                    <div class="col-lg-3 ds">
-                        <!--COMPLETED ACTIONS DONUTS CHART-->
-                        <div class="donut-main">
-                            <h4>2021 Year A/L Pass Students Precentage | 70%</h4>
-                            <canvas id="newchart" height="130" width="130"></canvas>
-                            <script>
-                                var doughnutData = [{
-                                    value: 70,
-                                    color: "#4ECDC4"
-                                }, {
-                                    value: 30,
-                                    color: "#fdfdfd"
-                                }];
-                                var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
-                            </script>
-                        </div>
-                        <!--NEW EARNING STATS -->
-                        <div class="panel terques-chart">
-                            <div class="panel-body">
-                                <div class="chart">
-                                    <div class="centered">
-                                        <span>Number of the Pass Students in Different Years <br> </span>
-                                        <strong>2011 - 2021</strong>
-                                    </div>
-                                    <br>
-                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[20,13,22,33,35,40,38,12,41,30,45]"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--new earning end-->
+                    <div class="col-lg-3 ds"> 
                         <!-- RECENT ACTIVITIES SECTION -->
                         <h4 class="centered mt">Up Comming Events for the Students</h4>
                         <!-- First Activity -->
