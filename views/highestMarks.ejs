@@ -406,15 +406,15 @@
        
           if ($(this).text() == '-') {
               $(this).css('background-color','RGBA(85,83,108,0.4)');
-          }else if ($(this).text() < 35 ) {
+          }else if ($(this).text() > 200 &&  $(this).text() < 400 ) {
               $(this).css('background-color','RGBA(255,198,191,0.4)');
-          }/*else if ($(this).text() < 400) {
+          }else if ($(this).text() > 840 &&  $(this).text() < 950) {
               $(this).css('background-color','RGBA(170,214,136,0.4)');
-          }/*else if ($(this).text() > 20 && $(this).text() <=25) {
+          }else if ($(this).text() > 550 && $(this).text() < 840) {
               $(this).css('background-color','RGBA(152,195,119,0.6)');
-          }else if ($(this).text() > 25 && $(this).text() <=30) {
+          }else if ($(this).text() >= 400 && $(this).text() < 550) {
               $(this).css('background-color','RGBA(139,189,120,0.9)');
-          }else if ($(this).text() > 30) {
+          }/*else if ($(this).text() > 30) {
               $(this).css('background-color','RGBA(94,167,88,0.9)');
           }*/
       });
