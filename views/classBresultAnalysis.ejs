@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>GROUP | KM_2022_19</title>
+
+  <!-- Favicons -->
+  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/style-responsive.css" rel="stylesheet">
+  <link href="../css/table-responsive.css" rel="stylesheet">
+  <link href="../lib/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+  <link href="../lib/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../lib/advanced-datatable/css/DT_bootstrap.css" />
+
+  <!-- ZingChart CDN script -->
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style>
+    #chart {
+      height: 300px;
+      width: 600px;
+    }
+
+    .chart--container {
+      height: 100%;
+      width: 100%;
+      min-height: 150px;
+    }
+
+    .zc-ref {
+      display: none;
+    }
+    
+    #table-wrapper {
+      position:relative;
+    }
+    #table-scroll {
+      height:150px;
+      overflow:auto;  
+      margin-top:20px;
+    }
+    #table-wrapper table {
+      width:100%;
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+    
+    }
+    #table-wrapper th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #045856;
+      color: white;
+    
+    }
+    #table-wrapper th
+    #table-wrapper td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    
+    }
+    #table-wrapper tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #table-wrapper tr:hover {
+      background-color: #ddd;
+    }
+   
+  </style>
+
+
+  
+
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="/" class="logo"><b>Student <span> Result Analysing System</span></b></a>
+      <!--logo end-->
+      <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <ul class="nav top-menu">
+          <!-- settings start -->
+
+          <!-- settings end -->
+          <!-- inbox dropdown start-->
+
+          <!-- inbox dropdown end -->
+          <!-- notification dropdown start-->
+
+          <!-- notification dropdown end -->
+        </ul>
+        <!--  notification end -->
+      </div>
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout" href="/">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+          <!-- sidebar menu start-->
+          <ul class="sidebar-menu" id="nav-accordion">
+              <p class="centered">
+                  <a href="/profile"><img src="../img/grade6.png" class="img-circle" width="80"></a>
+              </p>
+              <h5 class="centered">Grade 6</h5>
+              <li class="mt">
+                  <a class="active" href="/indexpage">
+                      <i class="fa fa-dashboard"></i>
+                      <span>Dashboard</span>
+                  </a>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;">
+                      <i class="fa fa-building"></i>
+                      <span>Manage Student Data</span>
+                  </a>
+                  <ul class="sub">      
+                      <li><a href="/ResultCRUD">Student Marks List</a></li>
+                      <li><a href="/ResultCRUD/add">Add new mark</a></li>
+                      
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="/ResultAnalysis/getmarks">
+                      <i class="fa fa-line-chart"></i>
+                      <span>Highest Marks</span>
+                  </a>
+              </li>
+             
+              <li class="sub-menu">
+                  <a href="/ResultAnalysis/getListFailures">
+                      <i class="fa fa-list"></i>
+                      <span>List Of Lowest Marks</span>
+                  </a>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;">
+                      <i class="fa fa-book"></i>
+                      <span>Subject Wise Analysis</span>
+                  </a>
+                  <ul class="sub">      
+                      <li><a href="#">  Mathematic </a> 
+                          <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestMathsmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowestMathsmarks">Lowest Marks</a></li>
+                      </ul> </li>
+                      <li><a href="#">Science</a>   <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestSciencemarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesSciencemarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  First Language  </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestFirstLanguagemarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesFirstLanguagemarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">English</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestEnglishmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesEnglishmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  Buddhism </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestBuddhismmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesBuddhismmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">History</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestHistorymarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesHistorymarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  Geography </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestGeographymarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesGeographymarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">Citizenship Education</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestCitizenmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesCitizenmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  Health & Physical Education  </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestHealthmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesHealthmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">Second Language (Tamil)</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestTamilhmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesTamilhmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  Eastern Music </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestMusichmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesMusichmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">Art</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestArtmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesArtmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">Dancing</a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestDancingmarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesDancingmarks">Lowest Marks</a></li>
+                      </ul></li>
+                      <li><a href="#">  Drama and Theatre  </a>  <ul class="sub">      
+                          <li><a href="/ResultAnalysis/getHighestDramamarks">Highest Marks</a></li>
+                          <li><a href="/ResultAnalysis/getLowesDramamarks">Lowest Marks</a></li>
+                      </ul></li>
+                  </ul>
+              </li>
+
+              <li class="sub-menu">
+                  <a href="javascript:;">
+                      <i class="fa fa-building"></i>
+                      <span>Class Wise Analysis</span>
+                  </a>
+                  <ul class="">      
+                      <li><a href="/segExploration">Class A</a></li>
+                      <li><a href="/classBcharts">Class B</a></li>
+                      <li><a href="/classCcharts">Class C</a></li>
+                  </ul>
+              </li>
+              <li class="sub-menu">
+                  <a href="javascript:;">
+                      <i class="fa fa-trophy"></i>
+                      <span>Top 3</span>
+                  </a>
+                  <ul class="sub">
+                      <li><a href="/ResultAnalysis/getTopclassA">Class A</a></li>
+                      <li><a href="/ResultAnalysis/getTopclassB">Class B</a></li>
+                      <li><a href="/ResultAnalysis/getTopclassC">Class C</a></li>
+                  </ul>
+              </li>
+              
+          </ul>
+          <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+
+        <!--Google translation start-->
+        <p><i class="fa fa-language"></i> Translate this page:</p>
+
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+          }
+        </script>
+
+        <script type="text/javascript"
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <!--Google translation end-->
+
+
+        <h3><i class="fa fa-angle-right"></i> English Pass & Fail Comparision</h3>
+        <!-- page start-->
+        <div id="morris">
+
+          <!--Strat English -->
+          <div class="row mt">
+            <div class="col-lg-6">
+              <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> English Pass</h4>
+                <div class="panel-body">
+                  <!-- <div id="hero-graph" class="graph"></div> -->
+
+                  <!-- TABLE 1 CONSTRUCTION-->
+                  <div id="table-wrapper">
+                    <div id="table-scroll">
+                  <div class="rfmtablecontainer">
+                    <table id='tableSub'>
+                      <!-- HEADING FORMATION -->
+                      <thead>
+                        <tr>
+                          <th>Admission No</th>
+                          <th>Student Name</th>
+                          <th>English</th>
+                        
+                        </tr>
+                      </thead>
+
+
+                      <!-- fetches data from api/data page & renders chart from data returned -->
+                      <tbody>
+
+                        <script>
+
+
+
+                          // creates variable for url we want to fetch
+                          const urlEnP = 'http://localhost:3000/ResultAnalysis/getPassEnglishStuB';
+                          // fetch call to our /api/data pageg
+                          fetch(urlEnP)
+                            // creates promise to work with response from /api/data
+                            .then(res => {
+                              // throws error if there is a problem fetching page
+                              if (!res.ok) {
+                                // returns error with response text of error
+                                throw new Error(res.statusText);
+                              }
+                              // returns data from /api/data page in json format to next promise
+                              return res.json();
+                            })
+                            // creates promise with returned data from previous promise
+                            .then(data => {
+                              // creates employees variable to store JSON data form /api/data
+                              let kmean = data;
+                             
+                            
+                           
+                              // creates chart const with employeeInfo array
+
+                              var student = '';
+
+                              // ITERATING THROUGH OBJECTS
+                              $.each(kmean, function (key, value) {
+
+                                //CONSTRUCTION OF ROWS HAVING
+                                // DATA FROM JSON OBJECT
+                                student += '<tr>';
+                                student += '<td>' +
+                                  value.AdmissionNo + '</td>';
+
+                                student += '<td>' +
+                                  value.StudentName + '</td>';
+
+                                student += '<td>' +
+                                  value.English + '</td>';
+
+                               
+
+                                student += '</tr>';
+                              });
+
+
+                              //INSERTING ROWS INTO TABLE 
+                              $('#tableSub').append(student);
+
+                              document.getElementById('tableSub').style.visibility = "visible";
+
+                            })
+
+                            // catches errors in promise chain
+                            .catch(error => console.log('fetch error'));
+
+                        </script>
+                      </tbody>
+                    </table>
+                  </div></div></div>
+
+                  <br>
+                  <h4><i class="fa fa-angle-right"></i> English Fail</h4>
+                  <!-- TABLE 2 CONSTRUCTION-->
+                  <div id="table-wrapper">
+                    <div id="table-scroll">
+                  <div class="rfmtablecontainer">
+                    <table id='tableEnglF'>
+                      <!-- HEADING FORMATION -->
+                      <thead>
+                        <tr>
+                          <th>Admission No</th>
+                          <th>Student Name</th>
+                          <th>English</th>
+                        
+                        </tr>
+                      </thead>
+
+
+                      <!-- fetches data from api/data page & renders chart from data returned -->
+                      <tbody>
+
+                        <script>
+
+
+
+                          // creates variable for url we want to fetch
+                          const urlEngF = 'http://localhost:3000/ResultAnalysis/getFailEnglishStuB';
+                          // fetch call to our /api/data page
+                          fetch(urlEngF)
+                            // creates promise to work with response from /api/data
+                            .then(res => {
+                              // throws error if there is a problem fetching page
+                              if (!res.ok) {
+                                // returns error with response text of error
+                                throw new Error(res.statusText);
+                              }
+                              // returns data from /api/data page in json format to next promise
+                              return res.json();
+                            })
+                            // creates promise with returned data from previous promise
+                            .then(data => {
+                              // creates employees variable to store JSON data form /api/data
+                              let kmean = data;
+                             
+                            
+                           
+                              // creates chart const with employeeInfo array
+
+                              var student = '';
+
+                              // ITERATING THROUGH OBJECTS
+                              $.each(kmean, function (key, value) {
+
+                                //CONSTRUCTION OF ROWS HAVING
+                                // DATA FROM JSON OBJECT
+                                student += '<tr>';
+                                student += '<td>' +
+                                  value.AdmissionNo + '</td>';
+
+                                student += '<td>' +
+                                  value.StudentName + '</td>';
+
+                                student += '<td>' +
+                                  value.English + '</td>';
+
+                               
+
+                                student += '</tr>';
+                              });
+
+
+                              //INSERTING ROWS INTO TABLE 
+                              $('#tableEnglF').append(student);
+
+                              document.getElementById('tableEnglF').style.visibility = "visible";
+
+                            })
+
+                            // catches errors in promise chain
+                            .catch(error => console.log('fetch error'));
+
+                        </script>
+                      </tbody>
+                    </table>
+                  </div></div></div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6">
+              <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+                <div class="panel-body">
+                  <!-- <div id="hero-bar" class="graph"></div> -->
+
+                  <div id='myChart'></div>
+
+                  <!-- fetches data from api/data page & renders chart from data returned -->
+                  <script>
+
+                    /*function validate(){
+                   if (document.getElementById('vehicle1').checked){*/
+
+                    // creates variable for url we want to fetch
+                    const url2 = 'http://localhost:3000/ResultAnalysis/engPassFailB';
+                    const urlfailE = 'http://localhost:3000/ResultAnalysis/getFailEnglish';
+                    // fetch call to our /api/data page
+                    fetch(url2)
+                      // creates promise to work with response from /api/data
+                      .then(res => {
+                        // throws error if there is a problem fetching page
+                        if (!res.ok) {
+                          // returns error with response text of error
+                          throw new Error(res.statusText);
+                        }
+                        // returns data from /api/data page in json format to next promise
+                        return res.json();
+                      })
+                      // creates promise with returned data from previous promise
+                      .then(data => {
+                        // creates employees variable to store JSON data form /api/data
+                        let customer = data;
+                        // creates empty employeeInfo array
+                        
+                        let sub = [];
+                       
+                        // loops through data from employee variable
+                        customer.forEach(customer => {
+                          // pushes values from employees variable to empty employeeInfo array
+                         
+                          sub.push([parseInt(customer.pass)]);
+                          sub.push([parseInt(customer.fail)])
+
+                        });
+                        //console.log(purchasesInfo)
+                        // creates chart const with employeeInfo array
+
+
+                        const chartConfig = {
+                          type: 'ring',
+
+                          legend: {
+                            draggable: true,
+                          },
+
+                          plot: {
+                            // animation docs here:
+                            // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                          },
+                          series: [
+                            {
+                              values: sub[0],
+                              text: "Pass"
+                              //backgroundColor: '#4d80a6'
+                            }, {
+                              // plot 2 values, linear data
+                              values:sub[1],
+                              text: "Fail"
+                              // backgroundColor: '#70cfeb'
+                            }
+                          ]
+                        };
+
+
+                        // renders zingchart to the page
+                        zingchart.render({
+                          id: 'myChart',
+                          data: chartConfig,
+                          height: 400,
+                          width: '100%'
+                        });
+
+
+
+                      })
+                  
+                      // catches errors in promise chain
+                      .catch(error => console.log('fetch error'));
+
+              
+                  </script>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+<!--English stop-->
+
+
+<!--science start-->
+<h3><i class="fa fa-angle-right"></i> Science Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Science Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableSciencePass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Science</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passSciencetabl = 'http://localhost:3000/ResultAnalysis/getPassScienceStuB';
+                // fetch call to our /api/data page
+                fetch(passSciencetabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Science + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableSciencePass').append(student);
+
+                    document.getElementById('tableSciencePass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i> Science Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableScienceFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Science</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const failsciencetabl = 'http://localhost:3000/ResultAnalysis/getFailScienceStuB';
+                // fetch call to our /api/data page
+                fetch(failsciencetabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Science + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableScienceFail').append(student);
+
+                    document.getElementById('tableScienceFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartscience'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const sciencepassfail = 'http://localhost:3000/ResultAnalysis/sciencePassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(sciencepassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigmaths = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartscience',
+                data: chartConfigmaths,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Science end-->
+<!------------------------------------------------------------------------>
+
+<!--First Language start-->
+<h3><i class="fa fa-angle-right"></i> First Language(Sinhala) Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> First Language Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableFirstLngPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>First Language</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passfirstLngtabl = 'http://localhost:3000/ResultAnalysis/getPassFirstLanguageStuB';
+                // fetch call to our /api/data page
+                fetch(passfirstLngtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.FirstLanguage + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableFirstLngPass').append(student);
+
+                    document.getElementById('tableFirstLngPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i> First Language Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableFirstLngFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>First Language</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const failfirstLngtabl = 'http://localhost:3000/ResultAnalysis/getFailFirstLanguageStuB';
+                // fetch call to our /api/data page
+                fetch(failfirstLngtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.FirstLanguage + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableFirstLngFail').append(student);
+
+                    document.getElementById('tableFirstLngFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartfirstLng'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const firstLngepassfail = 'http://localhost:3000/ResultAnalysis/firstLngPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(firstLngepassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartfirstLng',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Science end-->
+<!------------------------------------------------------->
+
+<!--Maths start-->
+<h3><i class="fa fa-angle-right"></i> Maths Pass & Fail Comparision</h3>
+          <div class="row mt">
+            <div class="col-lg-6">
+              <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Maths Pass</h4>
+                <div class="panel-body">
+                  <!-- <div id="hero-graph" class="graph"></div> -->
+
+                  <!-- TABLE 1 CONSTRUCTION-->
+                  <div id="table-wrapper">
+                    <div id="table-scroll">
+                  <div class="rfmtablecontainer">
+                    <table id='tableMathsPass'>
+                      <!-- HEADING FORMATION -->
+                      <thead>
+                        <tr>
+                          <th>Admission No</th>
+                          <th>Student Name</th>
+                          <th>Maths</th>
+                        
+                        </tr>
+                      </thead>
+
+                      <!-- fetches data from api/data page & renders chart from data returned -->
+                      <tbody>
+                        <script>
+                          // creates variable for url we want to fetch
+                          const passMathstabl = 'http://localhost:3000/ResultAnalysis/getPassMathsStuB';
+                          // fetch call to our /api/data page
+                          fetch(passMathstabl)
+                            // creates promise to work with response from /api/data
+                            .then(res => {
+                              // throws error if there is a problem fetching page
+                              if (!res.ok) {
+                                // returns error with response text of error
+                                throw new Error(res.statusText);
+                              }
+                              // returns data from /api/data page in json format to next promise
+                              return res.json();
+                            })
+                            // creates promise with returned data from previous promise
+                            .then(data => {
+                              // creates employees variable to store JSON data form /api/data
+                              let kmean = data;
+                             
+                            
+                           
+                              // creates chart const with employeeInfo array
+
+                              var student = '';
+
+                              // ITERATING THROUGH OBJECTS
+                              $.each(kmean, function (key, value) {
+
+                                //CONSTRUCTION OF ROWS HAVING
+                                // DATA FROM JSON OBJECT
+                                student += '<tr>';
+                                student += '<td>' +
+                                  value.AdmissionNo + '</td>';
+
+                                student += '<td>' +
+                                  value.StudentName + '</td>';
+
+                                student += '<td>' +
+                                  value.Mathematic + '</td>';
+
+                               
+
+                                student += '</tr>';
+                              });
+
+
+                              //INSERTING ROWS INTO TABLE 
+                              $('#tableMathsPass').append(student);
+
+                              document.getElementById('tableMathsPass').style.visibility = "visible";
+
+                            })
+
+                            // catches errors in promise chain
+                            .catch(error => console.log('fetch error'));
+
+                        </script>
+                      </tbody>
+                    </table>
+                  </div></div></div>
+
+                  <br>
+                  <h4><i class="fa fa-angle-right"></i> Maths Fail</h4>
+                  <!-- TABLE 2 CONSTRUCTION-->
+                  <div id="table-wrapper">
+                    <div id="table-scroll">
+                  <div class="rfmtablecontainer">
+                    <table id='tableMAthsFail'>
+                      <!-- HEADING FORMATION -->
+                      <thead>
+                        <tr>
+                          <th>Admission No</th>
+                          <th>Student Name</th>
+                          <th>Maths</th>
+                        
+                        </tr>
+                      </thead>
+
+                      <!-- fetches data from api/data page & renders chart from data returned -->
+                      <tbody>
+                        <script>
+
+                          // creates variable for url we want to fetch
+                          const failmathstabl = 'http://localhost:3000/ResultAnalysis/getFailMathsStuB';
+                          // fetch call to our /api/data page
+                          fetch(failmathstabl)
+                            // creates promise to work with response from /api/data
+                            .then(res => {
+                              // throws error if there is a problem fetching page
+                              if (!res.ok) {
+                                // returns error with response text of error
+                                throw new Error(res.statusText);
+                              }
+                              // returns data from /api/data page in json format to next promise
+                              return res.json();
+                            })
+                            // creates promise with returned data from previous promise
+                            .then(data => {
+                              // creates employees variable to store JSON data form /api/data
+                              let kmean = data;
+                                                    
+                              // creates chart const with employeeInfo array
+
+                              var student = '';
+
+                              // ITERATING THROUGH OBJECTS
+                              $.each(kmean, function (key, value) {
+
+                                //CONSTRUCTION OF ROWS HAVING
+                                // DATA FROM JSON OBJECT
+                                student += '<tr>';
+                                student += '<td>' +
+                                  value.AdmissionNo + '</td>';
+
+                                student += '<td>' +
+                                  value.StudentName + '</td>';
+
+                                student += '<td>' +
+                                  value.Mathematic + '</td>';
+
+                               
+
+                                student += '</tr>';
+                              });
+
+
+                              //INSERTING ROWS INTO TABLE 
+                              $('#tableMAthsFail').append(student);
+
+                              document.getElementById('tableMAthsFail').style.visibility = "visible";
+
+                            })
+
+                            // catches errors in promise chain
+                            .catch(error => console.log('fetch error'));
+
+                        </script>
+                      </tbody>
+                    </table>
+                  </div></div></div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6">
+              <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+                <div class="panel-body">
+                  <!-- <div id="hero-bar" class="graph"></div> -->
+
+                  <div id='myChartmaths'></div>
+
+                  <!-- fetches data from api/data page & renders chart from data returned -->
+                  <script>
+
+                    /*function validate(){
+                   if (document.getElementById('vehicle1').checked){*/
+
+                    // creates variable for url we want to fetch
+                    const mathpassfail = 'http://localhost:3000/ResultAnalysis/mathsPassFailB';
+                    
+                    // fetch call to our /api/data page
+                    fetch(mathpassfail)
+                      // creates promise to work with response from /api/data
+                      .then(res => {
+                        // throws error if there is a problem fetching page
+                        if (!res.ok) {
+                          // returns error with response text of error
+                          throw new Error(res.statusText);
+                        }
+                        // returns data from /api/data page in json format to next promise
+                        return res.json();
+                      })
+                      // creates promise with returned data from previous promise
+                      .then(data => {
+                        // creates employees variable to store JSON data form /api/data
+                        let customer = data;
+                        // creates empty employeeInfo array
+                        
+                        let sub = [];
+                       
+                        // loops through data from employee variable
+                        customer.forEach(customer => {
+                          // pushes values from employees variable to empty employeeInfo array
+                         
+                          sub.push([parseInt(customer.pass)]);
+                          sub.push([parseInt(customer.fail)])
+
+                        });
+                        //console.log(purchasesInfo)
+                        // creates chart const with employeeInfo array
+
+
+                        const chartConfigmaths = {
+                          type: 'ring',
+
+                          legend: {
+                            draggable: true,
+                          },
+
+                          plot: {
+                            // animation docs here:
+                            // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                          },
+                          series: [
+                            {
+                              values: sub[0],
+                              text: "Pass"
+                              //backgroundColor: '#4d80a6'
+                            }, {
+                              // plot 2 values, linear data
+                              values:sub[1],
+                              text: "Fail"
+                              // backgroundColor: '#70cfeb'
+                            }
+                          ]
+                        };
+
+
+                        // renders zingchart to the page
+                        zingchart.render({
+                          id: 'myChartmaths',
+                          data: chartConfigmaths,
+                          height: 400,
+                          width: '100%'
+                        });
+
+
+
+                      })
+                    
+                      // catches errors in promise chain
+                      .catch(error => console.log('fetch error'));
+
+              
+                  </script>
+
+
+                </div>
+              </div>
+            </div>   
+          </div>
+        <!--Maths end-->
+
+<!------------------------------------------------------------------------>
+
+<!--Buddisum start-->
+<h3><i class="fa fa-angle-right"></i> Buddhism Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Buddhism Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableBuddhismPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Buddhism</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passbuddisumtabl = 'http://localhost:3000/ResultAnalysis/getPassBuddhismStuB';
+                // fetch call to our /api/data page
+                fetch(passbuddisumtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Buddhism + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableBuddhismPass').append(student);
+
+                    document.getElementById('tableBuddhismPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i> Buddhism Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableBuddhismFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Buddhism</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const buddisumgtabl = 'http://localhost:3000/ResultAnalysis/getFailBuddhismStuB';
+                // fetch call to our /api/data page
+                fetch(buddisumgtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Buddhism + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableBuddhismFail').append(student);
+
+                    document.getElementById('tableBuddhismFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartbuddisum'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const buddisepassfail = 'http://localhost:3000/ResultAnalysis/buddhismPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(buddisepassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartbuddisum',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Buddisum end-->
+<!------------------------------------------------------->
+
+
+<!------------------------------------------------------------------------>
+
+<!--History start-->
+<h3><i class="fa fa-angle-right"></i> History Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> History Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableHistoryPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>History</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passhistorytabl = 'http://localhost:3000/ResultAnalysis/getPassHistoryStuB';
+                // fetch call to our /api/data page
+                fetch(passhistorytabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.History + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableHistoryPass').append(student);
+
+                    document.getElementById('tableHistoryPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i> History Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableHistoryFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>History</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const historytabl = 'http://localhost:3000/ResultAnalysis/getFailHistoryStuB';
+                // fetch call to our /api/data page
+                fetch(historytabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.History + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableHistoryFail').append(student);
+
+                    document.getElementById('tableHistoryFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myCharthistory'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const historypassfail = 'http://localhost:3000/ResultAnalysis/historyPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(historypassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myCharthistory',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--History end-->
+<!------------------------------------------------------->
+
+
+<!------------------------------------------------------------------------>
+
+<!--geography start-->
+<h3><i class="fa fa-angle-right"></i> Geography Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i>Geography Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableGeographyPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Geography</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passgeographytabl = 'http://localhost:3000/ResultAnalysis/getPassGeographyStuB';
+                // fetch call to our /api/data page
+                fetch(passgeographytabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Geography + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableGeographyPass').append(student);
+
+                    document.getElementById('tableGeographyPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i>Geography Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableGeographyFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Geography</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const failgeographytabl = 'http://localhost:3000/ResultAnalysis/getFailGeographyStuB';
+                // fetch call to our /api/data page
+                fetch(failgeographytabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Geography + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableGeographyFail').append(student);
+
+                    document.getElementById('tableGeographyFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartgeography'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const geographypassfail = 'http://localhost:3000/ResultAnalysis/geographyPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(geographypassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartgeography',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Geography end-->
+<!------------------------------------------------------->
+
+<!------------------------------------------------------------------------>
+
+<!--Citizenship start-->
+<h3><i class="fa fa-angle-right"></i>Citizenship Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i>Citizenship Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableCitizenshipEducationPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Citizenship</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passcitizenshiptabl = 'http://localhost:3000/ResultAnalysis/getPassCitizenshipEducationStuB';
+                // fetch call to our /api/data page
+                fetch(passcitizenshiptabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.CitizenshipEducation + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableCitizenshipEducationPass').append(student);
+
+                    document.getElementById('tableCitizenshipEducationPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i>Citizenship Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableCitizenshipEducationFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Citizenship</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const citizenshiptabl = 'http://localhost:3000/ResultAnalysis/getFailCitizenshipEducationStuB';
+                // fetch call to our /api/data page
+                fetch(citizenshiptabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.CitizenshipEducation + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableCitizenshipEducationFail').append(student);
+
+                    document.getElementById('tableCitizenshipEducationFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartcitizenship'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const citizenshippassfail = 'http://localhost:3000/ResultAnalysis/citizenshipEducationPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(citizenshippassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartcitizenship',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Citizenship end-->
+<!------------------------------------------------------->
+
+<!------------------------------------------------------------------------>
+
+<!--Health Physical education start-->
+<h3><i class="fa fa-angle-right"></i> Health Physical Education Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i>Health Physical Education Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableHealthPhysicalEducationPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Health Physical Education</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passhealthtabl = 'http://localhost:3000/ResultAnalysis/getPassHealthPhysicalEducationStuB';
+                // fetch call to our /api/data page
+                fetch(passhealthtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.HealthPhysicalEducation + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableHealthPhysicalEducationPass').append(student);
+
+                    document.getElementById('tableHealthPhysicalEducationPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i> Health physical Education Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableHealthPhysicalEducationFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Health Physical Education</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const failhealthtabl = 'http://localhost:3000/ResultAnalysis/getFailHealthPhysicalEducationStuB';
+                // fetch call to our /api/data page
+                fetch(failhealthtabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.HealthPhysicalEducation + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableHealthPhysicalEducationFail').append(student);
+
+                    document.getElementById('tableHealthPhysicalEducationFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myCharthealth'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const healthpassfail = 'http://localhost:3000/ResultAnalysis/healthPhysicalEducationPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(healthpassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myCharthealth',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Health end-->
+<!------------------------------------------------------->
+
+<!------------------------------------------------------------------------>
+
+<!--Tamil start-->
+<h3><i class="fa fa-angle-right"></i> Tamil Pass & Fail Comparision</h3>
+<div class="row mt">
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i>Tamil Pass</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-graph" class="graph"></div> -->
+
+        <!-- TABLE 1 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableTamilPass'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Tamil</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+                // creates variable for url we want to fetch
+                const passtamiltabl = 'http://localhost:3000/ResultAnalysis/getPassTamilStuB';
+                // fetch call to our /api/data page
+                fetch(passtamiltabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                   
+                  
+                 
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Tamil + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableTamilPass').append(student);
+
+                    document.getElementById('tableTamilPass').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+        <br>
+        <h4><i class="fa fa-angle-right"></i>Tamil Fail</h4>
+        <!-- TABLE 2 CONSTRUCTION-->
+        <div id="table-wrapper">
+          <div id="table-scroll">
+        <div class="rfmtablecontainer">
+          <table id='tableTamilFail'>
+            <!-- HEADING FORMATION -->
+            <thead>
+              <tr>
+                <th>Admission No</th>
+                <th>Student Name</th>
+                <th>Tamil</th>
+              
+              </tr>
+            </thead>
+
+            <!-- fetches data from api/data page & renders chart from data returned -->
+            <tbody>
+              <script>
+
+                // creates variable for url we want to fetch
+                const failtamiltabl = 'http://localhost:3000/ResultAnalysis/getFailTamilStuB';
+                // fetch call to our /api/data page
+                fetch(failtamiltabl)
+                  // creates promise to work with response from /api/data
+                  .then(res => {
+                    // throws error if there is a problem fetching page
+                    if (!res.ok) {
+                      // returns error with response text of error
+                      throw new Error(res.statusText);
+                    }
+                    // returns data from /api/data page in json format to next promise
+                    return res.json();
+                  })
+                  // creates promise with returned data from previous promise
+                  .then(data => {
+                    // creates employees variable to store JSON data form /api/data
+                    let kmean = data;
+                                          
+                    // creates chart const with employeeInfo array
+
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(kmean, function (key, value) {
+
+                      //CONSTRUCTION OF ROWS HAVING
+                      // DATA FROM JSON OBJECT
+                      student += '<tr>';
+                      student += '<td>' +
+                        value.AdmissionNo + '</td>';
+
+                      student += '<td>' +
+                        value.StudentName + '</td>';
+
+                      student += '<td>' +
+                        value.Tamil + '</td>';
+
+                     
+
+                      student += '</tr>';
+                    });
+
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#tableTamilFail').append(student);
+
+                    document.getElementById('tableTamilFail').style.visibility = "visible";
+
+                  })
+
+                  // catches errors in promise chain
+                  .catch(error => console.log('fetch error'));
+
+              </script>
+            </tbody>
+          </table>
+        </div></div></div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+    <div class="content-panel">
+      <h4><i class="fa fa-angle-right"></i> Percantages of Pass & Fails</h4>
+      <div class="panel-body">
+        <!-- <div id="hero-bar" class="graph"></div> -->
+
+        <div id='myChartTamil'></div>
+
+        <!-- fetches data from api/data page & renders chart from data returned -->
+        <script>
+
+          /*function validate(){
+         if (document.getElementById('vehicle1').checked){*/
+
+          // creates variable for url we want to fetch
+          const tamilpassfail = 'http://localhost:3000/ResultAnalysis/tamilPassFailB';
+          
+          // fetch call to our /api/data page
+          fetch(tamilpassfail)
+            // creates promise to work with response from /api/data
+            .then(res => {
+              // throws error if there is a problem fetching page
+              if (!res.ok) {
+                // returns error with response text of error
+                throw new Error(res.statusText);
+              }
+              // returns data from /api/data page in json format to next promise
+              return res.json();
+            })
+            // creates promise with returned data from previous promise
+            .then(data => {
+              // creates employees variable to store JSON data form /api/data
+              let customer = data;
+              // creates empty employeeInfo array
+              
+              let sub = [];
+             
+              // loops through data from employee variable
+              customer.forEach(customer => {
+                // pushes values from employees variable to empty employeeInfo array
+               
+                sub.push([parseInt(customer.pass)]);
+                sub.push([parseInt(customer.fail)])
+
+              });
+              //console.log(purchasesInfo)
+              // creates chart const with employeeInfo array
+
+
+              const chartConfigfirst = {
+                type: 'ring',
+
+                legend: {
+                  draggable: true,
+                },
+
+                plot: {
+                  // animation docs here:
+                  // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+
+                },
+                series: [
+                  {
+                    values: sub[0],
+                    text: "Pass"
+                    //backgroundColor: '#4d80a6'
+                  }, {
+                    // plot 2 values, linear data
+                    values:sub[1],
+                    text: "Fail"
+                    // backgroundColor: '#70cfeb'
+                  }
+                ]
+              };
+
+
+              // renders zingchart to the page
+              zingchart.render({
+                id: 'myChartTamil',
+                data: chartConfigfirst,
+                height: 400,
+                width: '100%'
+              });
+
+
+
+            })
+          
+            // catches errors in promise chain
+            .catch(error => console.log('fetch error'));
+
+    
+        </script>
+
+
+      </div>
+    </div>
+  </div>   
+</div>
+<!--Tamil end-->
+<!------------------------------------------------------->
+        </div>
+        <!--End chart part-->
+
+        <!-- page end-->
+      </section>
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+      <div class="text-center">
+        <p>
+            &copy; Copyrights <strong>KM_2022_19</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+            <!--
+    You are NOT allowed to delete the credit link to TemplateMag with free version.
+    You can delete the credit link only if you bought the pro version.
+    Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+    Licensing information: https://templatemag.com/license/
+  -->
+            Created by <a href="#">GROUP | KM_2022_19</a>
+        </div>
+        <a href="index.html#" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+    </footer>
+    <!--footer end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="../lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="../lib/jquery.scrollTo.min.js"></script>
+  <script src="../lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="../lib/raphael/raphael.min.js"></script>
+  <script src="../lib/morris/morris.min.js"></script>
+  <!--common script for all pages-->
+  <script src="../lib/common-scripts.js"></script>
+
+
+  <!--script for this page-->
+  <script src="../lib/morris-conf.js"></script>
+
+  <!--script for table page-->
+
+  <script type="text/javascript" language="javascript" src="../lib/advanced-datatable/js/jquery.js"></script>
+
+  <script type="text/javascript" language="javascript" src="../lib/advanced-datatable/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="../lib/advanced-datatable/js/DT_bootstrap.js"></script>
+  <script type="text/javascript">
+    /* Formating function for row details */
+    function fnFormatDetails(oTable, nTr) {
+      var aData = oTable.fnGetData(nTr);
+      var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+      sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+      sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+      sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+      sOut += '</table>';
+
+      return sOut;
+    }
+
+    $(document).ready(function () {
+      /*
+       * Insert a 'details' column to the table
+       */
+      var nCloneTh = document.createElement('th');
+      var nCloneTd = document.createElement('td');
+      nCloneTd.innerHTML = '<img src="../lib/advanced-datatable/images/details_open.png">';
+      nCloneTd.className = "center";
+
+      $('#hidden-table-info thead tr').each(function () {
+        this.insertBefore(nCloneTh, this.childNodes[0]);
+      });
+
+      $('#hidden-table-info tbody tr').each(function () {
+        this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+      });
+
+      /*
+       * Initialse DataTables, with no sorting on the 'details' column
+       */
+      var oTable = $('#hidden-table-info').dataTable({
+        "aoColumnDefs": [{
+          "bSortable": false,
+          "aTargets": [0]
+        }],
+        "aaSorting": [
+          [1, 'asc']
+        ]
+      });
+
+      /* Add event listener for opening and closing details
+       * Note that the indicator for showing which row is open is not controlled by DataTables,
+       * rather it is done here
+       */
+      $('#hidden-table-info tbody td img').live('click', function () {
+        var nTr = $(this).parents('tr')[0];
+        if (oTable.fnIsOpen(nTr)) {
+          /* This row is already open - close it */
+          this.src = "../lib/advanced-datatable/media/images/details_open.png";
+          oTable.fnClose(nTr);
+        } else {
+          /* Open this row */
+          this.src = "../lib/advanced-datatable/images/details_close.png";
+          oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+        }
+      });
+    });
+
+    $(document).on('click', 'input[type="checkbox"]', function () {
+      $('input[type="checkbox"]').not(this).prop('checked', false);
+    });
+  </script>
+</body>
+
+</html>

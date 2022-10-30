@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>GROUP | KM_2022_19</title>
+
+    <!-- Favicons -->
+    <link href="../img/favicon.png" rel="icon">
+    <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="../lib/gritter/css/jquery.gritter.css" />
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet">
+    <script src="../lib/chart-master/Chart.js"></script>
+
+    <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/" class="logo"><b>Student <span> Result Analysing System</span></b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- settings start -->
+
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+
+                    <!-- inbox dropdown end -->
+                    <!-- notification dropdown start-->
+
+                    <!-- notification dropdown end -->
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered">
+                        <a href="/profile"><img src="../img/grade6.png" class="img-circle" width="80"></a>
+                    </p>
+                    <h5 class="centered">Grade 6</h5>
+                    <li class="mt">
+                        <a class="active" href="/indexpage">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-building"></i>
+                            <span>Manage Student Data</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/ResultCRUD">Student Marks List</a></li>
+                            <li><a href="/ResultCRUD/add">Add new mark</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/ResultAnalysis/getmarks">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Highest Marks</span>
+                        </a>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="/ResultAnalysis/getListFailures">
+                            <i class="fa fa-list"></i>
+                            <span>List Of Lowest Marks</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Subject Wise Analysis</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="#"> Mathematic </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestMathsmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowestMathsmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Science</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestSciencemarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesSciencemarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> First Language </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestFirstLanguagemarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesFirstLanguagemarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">English</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestEnglishmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesEnglishmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> Buddhism </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestBuddhismmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesBuddhismmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">History</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestHistorymarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesHistorymarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> Geography </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestGeographymarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesGeographymarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Citizenship Education</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestCitizenmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesCitizenmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> Health & Physical Education </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestHealthmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesHealthmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Second Language (Tamil)</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestTamilhmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesTamilhmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> Eastern Music </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestMusichmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesMusichmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Art</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestArtmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesArtmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dancing</a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestDancingmarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesDancingmarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"> Drama and Theatre </a>
+                                <ul class="sub">
+                                    <li><a href="/ResultAnalysis/getHighestDramamarks">Highest Marks</a></li>
+                                    <li><a href="/ResultAnalysis/getLowesDramamarks">Lowest Marks</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-building"></i>
+                            <span>Class Wise Analysis</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/segExploration">Class A</a></li>
+                            <li><a href="/segExploration">Class B</a></li>
+                            <li><a href="/Segment/RFMtable">Class C</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-trophy"></i>
+                            <span>Top 3</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/ResultAnalysis/getTopclassA">Class A</a></li>
+                            <li><a href="/ResultAnalysis/getTopclassB">Class B</a></li>
+                            <li><a href="/ResultAnalysis/getTopclassC">Class C</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Compare Of Marks And Attendance</span>
+                        </a>
+
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/ResultAnalysis/getone">
+                            <i class="fa fa-file-text"></i>
+                            <span>Report Generation</span>
+                        </a>
+
+                    </li>
+                    <!-- <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Market basket analyais</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="/marketBusinesCase">Business Case</a></li>
+                                <li><a href="/Association/Associationtable">Association Rule Minning</a></li>
+                                <li><a href="font_awesome.html">What if</a></li>
+                            </ul>
+                        </li>
+                      
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-line-chart"></i>
+                                <span>Lifetime value analyais</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="blank.html">Lifetime value</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-arrows"></i>
+                                <span>Trajecteries detection</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="blank.html">Predict Trajecteries</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-table"></i>
+                                <span>Marketing stategies planing model</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="/swotanlysis">SWOT Analysis</a></li>
+                                <li><a href="responsive_table.html">Responsive Table</a></li>
+                                <li><a href="advanced_table.html">Advanced Table</a></li>
+                            </ul>
+                        </li> -->
+                    <!-- <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-comments-o"></i>
+                                <span>Chat Room</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="lobby.html">Lobby</a></li>
+                                <li><a href="chat_room.html"> Chat Room</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="google_maps.html">
+                                <i class="fa fa-map-marker"></i>
+                                <span>Google Maps </span>
+                            </a>
+                        </li> -->
+                    <!-- <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-money"></i>
+                                <span>commercialize</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="/pricingTable">Pricing List table</a></li>
+                            </ul>
+                        </li> -->
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+
+
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="container">
+
+                    <div class="row mt-5">
+                        <div class="col-lg-12 col-md-12 text-center">
+                            <h2>Manage Student Marks</h2>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <!-- heading -->
+                        <div class="col-lg-6 col-md-6 pt-3">
+                            <h3>Student Marks List</h3>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 text-end pt-3">
+                            <a href="/ResultCRUD/add" class="btn btn-primary btn-sm">+ Add New student Mark</a>
+                        </div>
+                        <button type="button" onclick="tableToCSV()">
+                            download CSV
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <!-- alert message -->
+                        <div class="col-lg-12 col-md-12 mt-2">
+
+                        </div>
+
+                        <!-- print data -->
+                        <div class="col-lg-12 col-md-12 mt-3">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Addmision No</th>
+                                        <th>Name</th>
+                                        <th>Mathematic</th>
+                                        <th>Science</th>
+                                        <th>FirstLanguage</th>
+                                        <th>English</th>
+                                        <th>Buddhism</th>
+                                        <th>History</th>
+                                        <th>Geography</th>
+                                        <th>CitizenshipEducation</th>
+                                        <th>HealthPhysicalEducation</th>
+                                        <th>Tamil</th>
+                                       
+
+                                        <th width="150" class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+
+                                <% if (data) { %>
+                                    <% data.forEach(function(product){ %>
+                                        <tr>
+                                            <td>
+                                                <%= product.AdmissionNo %>
+                                            </td>
+                                            <td>
+                                                <%= product.StudentName %>
+                                            </td>
+                                            <td>
+                                                <%= product.Mathematic %>
+                                            </td>
+                                            <td>
+                                                <%= product.Science %>
+                                            </td>
+                                            <td>
+                                                <%= product.FirstLanguage %>
+                                            </td>
+                                            <td>
+                                                <%= product.English %>
+                                            </td>
+                                            <td>
+                                                <%= product.Buddhism %>
+                                            </td>
+                                            <td>
+                                                <%= product.History %>
+                                            </td>
+                                            <td>
+                                                <%= product.Geography %>
+                                            </td>
+                                            <td>
+                                                <%= product.CitizenshipEducation %>
+                                            </td>
+                                            <td>
+                                                <%= product.HealthPhysicalEducation %>
+                                            </td>
+                                            <td>
+                                                <%= product.Tamil %>
+                                            </td>
+                                          
+
+                                            <td class="text-center">
+                                                <a href='/ResultCRUD/edit/<%= product.AdmissionNo %>'
+                                                    class="btn btn-info text-white btn-sm inline-block"
+                                                    onclick="openForm()">Edit</a>
+                                                <!-- <form method="post"
+                                                    action="/ResultCRUD/delete/<--%= product.AdmissionNo %>"
+                                                    class="d-inline-block">
+                                                    <input type="submit" name="delete" value='Delete'
+                                                        class="btn btn-danger btn-sm"
+                                                        onClick="return confirm('Are you sure you want to delete?')" />
+                                                    <input type="hidden" name="_method" value="DELETE" />
+                                                </form> -->
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </section>
+
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    &copy; Copyrights <strong>KM_2022_19</strong>. All Rights Reserved
+                </p>
+                <div class="credits">
+                    <!--
+            You are NOT allowed to delete the credit link to TemplateMag with free version.
+            You can delete the credit link only if you bought the pro version.
+            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+            Licensing information: https://templatemag.com/license/
+          -->
+                    Created by <a href="#">GROUP | KM_2022_19</a>
+                </div>
+                <a href="index.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="../lib/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="../lib/jquery.scrollTo.min.js"></script>
+    <script src="../lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="../lib/jquery.sparkline.js"></script>
+    <!--common script for all pages-->
+    <script src="../lib/common-scripts.js"></script>
+    <script type="text/javascript" src="../lib/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="../lib/gritter-conf.js"></script>
+    <!--script for this page-->
+    <script src="../lib/sparkline-chart.js"></script>
+    <script src="../lib/zabuto_calendar.js"></script>
+    <script type="text/javascript">
+    </script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({
+                html: true,
+                trigger: "manual"
+            });
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+
+            $("#my-calendar").zabuto_calendar({
+                action: function () {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function () {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [{
+                    type: "text",
+                    label: "Special event",
+                    badge: "00"
+                }, {
+                    type: "block",
+                    label: "Regular event",
+                }]
+            });
+        });
+
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+    <!--Convert table into csv and download data-->
+    <script type="text/javascript">
+        function tableToCSV() {
+ 
+            // Variable to store the final csv data
+            var csv_data = [];
+ 
+            // Get each row data
+            var rows = document.getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+ 
+                // Get each column data
+                var cols = rows[i].querySelectorAll('td,th');
+ 
+                // Stores each csv row data
+                var csvrow = [];
+                for (var j = 0; j < cols.length; j++) {
+ 
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+                    csvrow.push(cols[j].innerHTML);
+                }
+ 
+                // Combine each column value with comma
+                csv_data.push(csvrow.join(","));
+            }
+ 
+            // Combine each row data with new line character
+            csv_data = csv_data.join('\n');
+ 
+            // Call this function to download csv file 
+            downloadCSVFile(csv_data);
+ 
+        }
+ 
+        function downloadCSVFile(csv_data) {
+ 
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([csv_data], {
+                type: "text/csv"
+            });
+ 
+            // Create to temporary link to initiate
+            // download process
+            var temp_link = document.createElement('a');
+ 
+            // Download csv file
+            temp_link.download = "GfG.csv";
+            var url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+ 
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+ 
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+    </script>
+
+</body>
+
+</html>
