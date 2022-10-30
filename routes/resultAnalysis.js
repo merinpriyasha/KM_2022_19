@@ -21,7 +21,7 @@ router.get('/getAlldata', (req, res) => {
 //get highst marks by student
 router.get('/getmarks', (req,res)=>{
     let sql =
-        'SELECT `AdmissionNo`, `StudentName`,  SUM( Mathematic + Science + FirstLanguage + English + Buddhism + History + Geography + CitizenshipEducation + HealthPhysicalEducation + Tamil + EasternMusic + Art + Dancing + DramaandTheatre  ) as `Total`, FORMAT((SUM( Mathematic + Science + FirstLanguage + English + Buddhism + History + Geography + CitizenshipEducation + HealthPhysicalEducation + Tamil + EasternMusic + Art + Dancing + DramaandTheatre  ) / (95*11)*100) ,2) as `Average` FROM grade6 GROUP BY AdmissionNo ORDER BY `Total` DESC;'
+        'SELECT `AdmissionNo`, `StudentName`,  SUM( Mathematic + Science + FirstLanguage + English + Buddhism + History + Geography + CitizenshipEducation + HealthPhysicalEducation + Tamil + EasternMusic + Art + Dancing + DramaandTheatre  ) as `Total`, FORMAT((SUM( Mathematic + Science + FirstLanguage + English + Buddhism + History + Geography + CitizenshipEducation + HealthPhysicalEducation + Tamil + EasternMusic + Art + Dancing + DramaandTheatre  ) / (95*11)*100) ,2) as `Average` FROM grade6 GROUP BY AdmissionNo ORDER BY `Total`  DESC;'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);
@@ -2478,7 +2478,8 @@ router.get('/engPassFailC', (req,res)=>{
 //List of failures
  router.get('/getListFailures', (req,res)=>{
     let sql =
-        'SELECT `AdmissionNo`, `StudentName`, Mathematic , Science , FirstLanguage , English , Buddhism , History , Geography , CitizenshipEducation , HealthPhysicalEducation , Tamil , EasternMusic , Art , Dancing , DramaandTheatre  FROM `grade6` where  Mathematic < 45 && Science < 45 && FirstLanguage < 45 && English < 45 && Buddhism < 45 && History < 45 && Geography < 45 && CitizenshipEducation < 45 && HealthPhysicalEducation < 45 && Tamil < 45;'
+    'select * from grade6 where TotalMarks < 400;'
+        //'SELECT `AdmissionNo`, `StudentName`, Mathematic , Science , FirstLanguage , English , Buddhism , History , Geography , CitizenshipEducation , HealthPhysicalEducation , Tamil , EasternMusic , Art , Dancing , DramaandTheatre  FROM `grade6` where  Mathematic < 35 && Science < 35 && FirstLanguage < 35 && English < 35 && Buddhism < 35 && History < 35 && Geography < 35 && CitizenshipEducation < 35 && HealthPhysicalEducation < 35 && Tamil < 35;'
     db.query(sql, (err, rows) => {
         if (err) return res.status(400).json({ Message: err.message });
         // res.send(result);

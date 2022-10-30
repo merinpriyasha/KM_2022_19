@@ -239,7 +239,7 @@
               <div class="content-panel">
                 <div class="adv-table">
                   <section id="unseen">
-                  <table class="table table-bordered table-striped table-condensed">
+                  <table class="table table-bordered table-striped table-condensed" id="status_report">
                     <thead>
                       <tr>
 
@@ -397,6 +397,29 @@
       $("#sortable").sortable();
       $("#sortable").disableSelection();
     });
+
+    //add colur based on value
+
+ 
+    $(document).ready(function(){
+      $('#status_report tr td').each(function(){
+       
+          if ($(this).text() == '-') {
+              $(this).css('background-color','RGBA(85,83,108,0.4)');
+          }else if ($(this).text() < 35 ) {
+              $(this).css('background-color','RGBA(255,198,191,0.4)');
+          }/*else if ($(this).text() < 400) {
+              $(this).css('background-color','RGBA(170,214,136,0.4)');
+          }/*else if ($(this).text() > 20 && $(this).text() <=25) {
+              $(this).css('background-color','RGBA(152,195,119,0.6)');
+          }else if ($(this).text() > 25 && $(this).text() <=30) {
+              $(this).css('background-color','RGBA(139,189,120,0.9)');
+          }else if ($(this).text() > 30) {
+              $(this).css('background-color','RGBA(94,167,88,0.9)');
+          }*/
+      });
+  });
+
   </script>
 
 </body>
