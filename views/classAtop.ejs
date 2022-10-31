@@ -25,6 +25,7 @@
   <link href="../lib/advanced-datatable/css/demo_table.css" rel="stylesheet" />
   <link rel="stylesheet" href="../lib/advanced-datatable/css/DT_bootstrap.css" />
   <link rel="stylesheet" href="../css/to-do.css">
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -289,11 +290,117 @@
               <!-- page end-->
             </div>
 
+
+            
+
             <!-- /content-panel -->
           </div>
           <!-- /col-lg-12 -->
         </div>
         <!-- /row -->
+
+         <!-- /row -->
+         <div class="row mt">
+          <div class="col-lg-12">
+            <h3><i class="fa fa-angle-right"></i>
+              Chart
+            </h3>
+            <div class="row mb">
+              <!-- page start-->
+              <div class="content-panel">
+
+                <div id="myChartscience"></div>
+
+                <!-- fetches data from api/data page & renders chart from data returned -->
+                <script>
+        
+                  /*function validate(){
+                 if (document.getElementById('vehicle1').checked){*/
+        
+                  // creates variable for url we want to fetch
+                  const sciencepassfail = 'http://localhost:3000/ResultAnalysis/sciencePassFailC';
+                  
+                  // fetch call to our /api/data page
+                  fetch(sciencepassfail)
+                    // creates promise to work with response from /api/data
+                    .then(res => {
+                      // throws error if there is a problem fetching page
+                      if (!res.ok) {
+                        // returns error with response text of error
+                        throw new Error(res.statusText);
+                      }
+                      // returns data from /api/data page in json format to next promise
+                      return res.json();
+                    })
+                    // creates promise with returned data from previous promise
+                    .then(data => {
+                      // creates employees variable to store JSON data form /api/data
+                      let customer = data;
+                      // creates empty employeeInfo array
+                      
+                      let sub = [];
+                     
+                      // loops through data from employee variable
+                      customer.forEach(customer => {
+                        // pushes values from employees variable to empty employeeInfo array
+                       
+                        sub.push([parseInt(customer.pass)]);
+                        sub.push([parseInt(customer.fail)])
+        
+                      });
+                      //console.log(purchasesInfo)
+                      // creates chart const with employeeInfo array
+        
+                      const chartConfigmaths = {
+                        type: 'bar',
+        
+                        legend: {
+                          draggable: true,
+                        },
+                        "scaleX":{
+                          values: ['maths','science','sinhala','english','buddhism','history','geography','citizenship','health','tamil']
+                        },
+                        plot: {
+                          // animation docs here:
+                          // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
+        
+                        },
+                        series: [
+                          {
+                            values:[71,	85,	79,	77,	75,	85,	88,	94,	100,	93],
+                            text: "5172"
+                            //backgroundColor: '#4d80a6'
+                          }, {
+                            // plot 2 values, linear data
+                            values: [75,	95,	72,	82,	90,	75,	88,	75,	100,	87],
+                            text: "5173"
+                            // backgroundColor: '#70cfeb'
+                          },{
+                            values:[81,	90,	89,	91,	95,	80,	69,	75,	94,	76],
+                            text: "5199"
+                          },
+                        ]
+                      };
+        
+        
+                      // renders zingchart to the page
+                      zingchart.render({
+                        id: 'myChartscience',
+                        data: chartConfigmaths,
+                        height: 400,
+                        width: '100%'
+                      });
+
+                    })
+                    // catches errors in promise chain
+                    .catch(error => console.log('fetch error'));
+        
+            
+                </script>
+                </div></div>
+
+            </div></div>
+            
       </section>
       <!-- /wrapper -->
     </section>
